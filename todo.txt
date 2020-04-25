@@ -1,0 +1,2 @@
+1. First create a working splashscreen 
+2. Create the 3 introduction pages 
