@@ -5,18 +5,13 @@ import { SplashScreen } from "expo";
 // import { Ionicons } from "@expo/vector-icons";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import HomeScreen from "./screens/HomeScreen";
+import TabMenu from "./navigation/TabMenu";
 import InfoScreen from "./screens/InfoScreen";
 
 const Stack = createStackNavigator();
 
 export default function App() {
   const [isLoading, setIsLoading] = React.useState(true);
-
-  React.useEffect(() => {
-    SplashScreen.preventAutoHide();
-    setTimeout(() => SplashScreen.hide(), 2000);
-  }, []);
 
   return (
     <View style={styles.container}>
@@ -26,10 +21,10 @@ export default function App() {
           screenOptions={{
             headerShown: false,
           }}
-          initialRouteName="InfoScreen"
+          initialRouteName="TabMenu"
         >
           <Stack.Screen name="InfoScreen" component={InfoScreen} />
-          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="TabMenu" component={TabMenu} />
         </Stack.Navigator>
       </NavigationContainer>
     </View>
