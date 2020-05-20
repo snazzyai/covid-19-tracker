@@ -15,7 +15,6 @@ import backgroundColor from "../assets/data/backgroundColor";
 import data from "../assets/data/data";
 import NewsItem from "../components/NewsItem";
 import { newsApiKey } from "../config";
-import { TouchableOpacity } from "react-native-gesture-handler";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
@@ -29,19 +28,21 @@ const HomeScreen = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [hasLoaded, setHasLoaded] = useState(false);
   const [footerLoading, setFooterLoading] = useState(false);
+  const [bytes, setRandomBytes] = useState(Math.random() * 1000000000);
 
-  const url = `https://newsapi.org/v2/everything?q=covid&page=${page}&pageSize=20&apiKey=${newsApiKey}`;
+  const url = `https://newsapi.org/v2/everything?q=covid&pageSize=50&apiKey=${newsApiKey}`;
   const fetchNews = async () => {
     hasLoaded ? setIsLoading(false) : setIsLoading(true);
     const fakeUrl = `https://jsonplaceholder.typicode.com/photos?_limit=10&_page=${page}`;
-    const result = await fetch(fakeUrl);
+    const result = await fetch(url);
     result
       .json()
       .then((data) => {
         setFooterLoading(false);
         setIsLoading(false);
         setHasLoaded(true);
-        setNews(news.concat(data));
+        let newData = news.concat(data.articles);
+        setNews(filteredData(newData));
       })
       .catch((error) => {
         setFooterLoading(false);
@@ -50,9 +51,12 @@ const HomeScreen = () => {
       });
   };
 
+  const filteredData = (array) => {
+    return [...new Set(array)];
+  };
   const handleLoadMore = () => {
     setFooterLoading(true);
-    if (page == 2) {
+    if (page >= 2) {
       setFooterLoading(false);
       return null;
     }
@@ -75,10 +79,8 @@ const HomeScreen = () => {
     fetchNews();
   }, [page]);
 
-  const onChangeText = (search) => {};
-
-  const touchPressTwo = () => {
-    setPage(2);
+  const handleChangeText = (value) => {
+    setSearch(value);
   };
 
   return (
@@ -87,10 +89,11 @@ const HomeScreen = () => {
         <Searchbar
           style={styles.searchbar}
           placeholder="Search"
-          onChangeText={onChangeText}
+          onChangeText={handleChangeText}
           value={search}
         />
       </View>
+
       {isLoading ? (
         <View style={styles.indicatorView}>
           <ActivityIndicator size="large" />
@@ -102,15 +105,12 @@ const HomeScreen = () => {
           renderItem={({ item }) => (
             <NewsItem
               title={item.title}
-              body={item.title}
-              imgUrl={item.thumbnailUrl}
+              body={item.description}
+              imgUrl={item.urlToImage}
               more={item.url}
             />
           )}
-          keyExtractor={(item) => item.id}
-          onEndReached={handleLoadMore}
-          onEndReachedThreshold={0.2}
-          ListFooterComponent={footerComponent}
+          keyExtractor={(item) => item.title + bytes}
         />
       )}
     </SafeAreaView>
@@ -139,6 +139,9 @@ const styles = StyleSheet.create({
   },
   indicatorView: {
     marginTop: 20,
+  },
+  footerIndicator: {
+    padding: 15,
   },
 });
 

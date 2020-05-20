@@ -7,13 +7,14 @@ import {
   Dimensions,
   SafeAreaView,
 } from "react-native";
+import * as WebBrowser from "expo-web-browser";
 
 const windowWidth = Dimensions.get("window").width - 45;
 const windowHeight = Dimensions.get("window").height;
 
 const NewsItem = ({ title, imgUrl, body, more }) => {
-  const loadWebpage = () => {
-    console.warn("clicked to go to webpage", more);
+  const loadWebpage = async (page) => {
+    await WebBrowser.openBrowserAsync(more);
   };
 
   return (
@@ -22,11 +23,11 @@ const NewsItem = ({ title, imgUrl, body, more }) => {
         <Image style={styles.newsImage} source={{ uri: imgUrl }} />
       </View>
       <View style={styles.title}>
-        <Text style={styles.titleText}>{title}</Text>
+        <Text style={styles.titleText}>{title.toUpperCase()}</Text>
       </View>
       <View style={styles.body}>
         <Text style={styles.bodyText}>{body}</Text>
-        <Text style={styles.readText} onPress={() => loadWebpage(more)}>
+        <Text style={styles.readText} onPress={loadWebpage}>
           Read More...
         </Text>
       </View>
