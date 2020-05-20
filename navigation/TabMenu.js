@@ -20,7 +20,7 @@ const TabMenu = () => {
         component={HomeScreen}
         options={{
           tabBarLabel: "Home",
-          tabBarIcon: ({ color }) => (
+          tabBarIcon: ({ color = "black" }) => (
             <MaterialCommunityIcons name="home" color={color} size={26} />
           ),
         }}
@@ -30,7 +30,7 @@ const TabMenu = () => {
         component={CountrySearch}
         options={{
           tabBarLabel: "Search Country",
-          tabBarIcon: ({ color }) => (
+          tabBarIcon: ({ color = "black" }) => (
             <MaterialCommunityIcons name="search-web" color={color} size={26} />
           ),
         }}
@@ -40,7 +40,7 @@ const TabMenu = () => {
         component={TipsScreen}
         options={{
           tabBarLabel: "Protect Myself!",
-          tabBarIcon: ({ color }) => (
+          tabBarIcon: ({ color = "black" }) => (
             <MaterialCommunityIcons name="help" color={color} size={26} />
           ),
         }}
@@ -50,7 +50,7 @@ const TabMenu = () => {
         component={AboutScreen}
         options={{
           tabBarLabel: "About",
-          tabBarIcon: ({ color }) => (
+          tabBarIcon: ({ color = "#000" }) => (
             <MaterialCommunityIcons
               name="information-outline"
               color={color}

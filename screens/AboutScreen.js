@@ -11,7 +11,7 @@ import {
 const AboutScreen = () => {
   return (
     <View>
-      <Text>HomeScreen</Text>
+      <Text>About</Text>
     </View>
   );
 };

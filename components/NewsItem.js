@@ -11,22 +11,23 @@ import {
 const windowWidth = Dimensions.get("window").width - 45;
 const windowHeight = Dimensions.get("window").height;
 
-const NewsItem = ({ title, imgUrl, body }) => {
+const NewsItem = ({ title, imgUrl, body, more }) => {
+  const loadWebpage = () => {
+    console.warn("clicked to go to webpage", more);
+  };
+
   return (
     <View style={styles.newsView}>
       <View>
         <Image style={styles.newsImage} source={{ uri: imgUrl }} />
       </View>
       <View style={styles.title}>
-        <Text style={styles.titleText}>
-          {"THIS IS JUST A TITLE FOR STARTERS AND OTHER SETS TO MAKE SURE THAT THEY ARE REALLY NICE" ||
-            title}
-        </Text>
+        <Text style={styles.titleText}>{title}</Text>
       </View>
       <View style={styles.body}>
-        <Text style={styles.bodyText}>
-          {"Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos at, officiis temporibus recusandae esse voluptates quae dolorem non dolorum. Laborum reiciendis quam quo cupiditate doloremque. Aliquid nostrum unde neque ad?" ||
-            body}
+        <Text style={styles.bodyText}>{body}</Text>
+        <Text style={styles.readText} onPress={() => loadWebpage(more)}>
+          Read More...
         </Text>
       </View>
       <View style={styles.reference}>
@@ -44,7 +45,7 @@ const styles = StyleSheet.create({
   newsImage: {
     backgroundColor: "green",
     width: windowWidth,
-    height: windowHeight - 530,
+    height: 200,
     marginTop: 20,
   },
   title: {
