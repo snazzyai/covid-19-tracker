@@ -2,7 +2,9 @@
 2. Create the 3 introduction pages      ✅
 3. Create components for each bottom tab in MainScreen ✅
 4. Add news details to HomeScreen(use dummy data for now) ✅
-5. fetch api from newsapi.org and replace dummy data.
-6. Add search functionality to the newspage
+5. fetch api from newsapi.org and replace dummy data. ✅
+6. Add search functionality to the newspage ✅
 6. Add info to TipsScreen and lazy load it so it doesnt need to refresh
+7. Create the About Screen
+8. Start working on the country search page
 

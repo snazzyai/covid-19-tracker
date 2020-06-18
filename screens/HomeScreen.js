@@ -19,8 +19,6 @@ import { newsApiKey } from '../config';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-const DATA = data.articles;
-
 const HomeScreen = () => {
   const [search, setSearch] = useState('');
   const [news, setNews] = useState([]);
@@ -30,6 +28,7 @@ const HomeScreen = () => {
   const [hasLoaded, setHasLoaded] = useState(false);
   const [footerLoading, setFooterLoading] = useState(false);
   const [bytes, setRandomBytes] = useState(Math.random() * 1000000000);
+  const [error, setError] = useState('');
 
   const fakeUrl = `https://jsonplaceholder.typicode.com/photos?_limit=10&_page=${page}`;
   const url = `https://newsapi.org/v2/everything?q=covid&pageSize=50&apiKey=${newsApiKey}`;
@@ -48,6 +47,7 @@ const HomeScreen = () => {
         setFooterLoading(false);
         setIsLoading(false);
         console.warn(error);
+        setError('Error connecting...swipe down to refresh');
       });
   };
 
@@ -80,6 +80,11 @@ const HomeScreen = () => {
           value={search}
         />
       </View>
+      {error ? (
+        <View>
+          <Text>{error}</Text>
+        </View>
+      ) : null}
 
       {isLoading ? (
         <View style={styles.indicatorView}>
