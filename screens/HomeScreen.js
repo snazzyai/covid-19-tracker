@@ -42,6 +42,7 @@ const HomeScreen = () => {
         setIsLoading(false);
         setHasLoaded(true);
         setNews(data.articles);
+        setFilteredNews(data.articles);
       })
       .catch((error) => {
         setFooterLoading(false);

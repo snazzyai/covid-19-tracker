@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 import {
   Text,
   View,
@@ -6,11 +6,11 @@ import {
   Image,
   Dimensions,
   SafeAreaView,
-} from "react-native";
-import * as WebBrowser from "expo-web-browser";
+} from 'react-native';
+import * as WebBrowser from 'expo-web-browser';
 
-const windowWidth = Dimensions.get("window").width - 45;
-const windowHeight = Dimensions.get("window").height;
+const windowWidth = Dimensions.get('window').width - 45;
+const windowHeight = Dimensions.get('window').height;
 
 const NewsItem = ({ title, imgUrl, body, more }) => {
   const loadWebpage = async (page) => {
@@ -41,10 +41,10 @@ const NewsItem = ({ title, imgUrl, body, more }) => {
 const styles = StyleSheet.create({
   newsView: {
     flex: 1,
-    alignItems: "center",
+    alignItems: 'center',
   },
   newsImage: {
-    backgroundColor: "green",
+    backgroundColor: 'green',
     width: windowWidth,
     height: 200,
     marginTop: 20,
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     paddingRight: 20,
   },
   titleText: {
-    fontWeight: "bold",
+    fontWeight: 'bold',
     fontSize: 18,
   },
   body: {
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
   },
   referenceText: {
     fontSize: 12,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
 });
 
