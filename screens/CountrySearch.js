@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, FlatList, Text } from 'react-native';
 import { Searchbar } from 'react-native-paper';
 import Window from '../assets/data/windowSize';
-import { Card, Title, Paragraph } from 'react-native-paper';
+import { Card, Paragraph } from 'react-native-paper';
+import { SvgCssUri } from 'react-native-svg';
+import backgroundColor from '../assets/data/backgroundColor';
 
 const CountrySearch = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -53,6 +55,7 @@ const CountrySearch = () => {
         placeholder="Search"
         onChangeText={onChangeSearch}
         value={searchQuery}
+        style={styles.search}
       />
       <View>
         <FlatList
@@ -62,7 +65,7 @@ const CountrySearch = () => {
             <View style={styles.cardView}>
               <Card style={styles.card} onPress={() => covidDetails(item.name)}>
                 <Card.Content>
-                  <Paragraph>{item.name}</Paragraph>
+                  <Paragraph style={styles.text}>{item.name}</Paragraph>
                 </Card.Content>
               </Card>
             </View>
@@ -80,12 +83,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: Window.height - 630,
     paddingBottom: Window.height - 630,
+    backgroundColor: backgroundColor.blue,
+  },
+  search: {
+    width: Window.width - 15,
   },
   cardView: {
     padding: 10,
   },
   card: {
     width: Window.width - 20,
+  },
+  text: {
+    fontSize: 18,
+    fontWeight: 'bold',
   },
 });
 export default CountrySearch;

@@ -55,15 +55,7 @@ const tips = [
   {
     title: 'Clean and disinfect',
     details: [
-      'Clean AND disinfect frequently touched surfaces daily. This includes tables, doorknobs, light switches, countertops, handles, desks, phones, keyboards, toilets, faucets, and sinks.',
-      'If surfaces are dirty, clean them. Use detergent or soap and water prior to disinfection.',
-      'Then, use a household disinfectant. Most common EPA-registered household disinfectantsexternal icon will work.',
-    ],
-  },
-  {
-    title: 'Clean and disinfect',
-    details: [
-      'Clean AND disinfect frequently touched surfaces daily. This includes tables, doorknobs, light switches, countertops, handles, desks, phones, keyboards, toilets, faucets, and sinks.',
+      'Clean and disinfect frequently touched surfaces daily. This includes tables, doorknobs, light switches, countertops, handles, desks, phones, keyboards, toilets, faucets, and sinks.',
       'If surfaces are dirty, clean them. Use detergent or soap and water prior to disinfection.',
       'Then, use a household disinfectant. Most common EPA-registered household disinfectantsexternal icon will work.',
     ],

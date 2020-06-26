@@ -76,7 +76,12 @@ const HomeScreen = () => {
           value={search}
         />
       </View>
-      <Menu.Item icon="redo" onPress={() => fetchNews()} title="Refresh" />
+      <Menu.Item
+        style={styles.icon}
+        icon="redo"
+        onPress={() => fetchNews()}
+        title="Refresh"
+      />
       {error ? (
         <View>
           <Text>{error}</Text>
@@ -117,6 +122,9 @@ const styles = StyleSheet.create({
   searchbar: {
     width: Window.width - 45,
     borderRadius: 0,
+  },
+  icon: {
+    color: '#000',
   },
   list: {
     marginTop: 10,

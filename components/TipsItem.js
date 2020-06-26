@@ -33,7 +33,7 @@ const TipsItem = ({ title, details }) => {
         </View>
         <View style={styles.reference}>
           <Text style={styles.referenceText}>
-            From Central for Disease Control
+            From Center for Disease Control
           </Text>
         </View>
       </View>
