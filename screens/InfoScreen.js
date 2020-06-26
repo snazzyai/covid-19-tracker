@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 import {
   Text,
   View,
@@ -6,18 +6,17 @@ import {
   Image,
   Dimensions,
   SafeAreaView,
-} from "react-native";
-import IllustrationHolder from "../components/IllustrationHolder";
-import SkipButton from "../components/SkipButton";
-import NavigationCircle from "../components/NavigationCircle";
-import ViewPager from "@react-native-community/viewpager";
-import SvgWorld from "../assets/svgJS/Worldsvg";
-import SvgDistance from "../assets/svgJS/Distancesvg";
-import SvgPersonal from "../assets/svgJS/Personalsvg";
-import { InfoPage } from "../components/InfoPage";
+} from 'react-native';
+import IllustrationHolder from '../components/IllustrationHolder';
+import SkipButton from '../components/SkipButton';
+import NavigationCircle from '../components/NavigationCircle';
+import ViewPager from '@react-native-community/viewpager';
+import SvgWorld from '../assets/svgJS/Worldsvg';
+import SvgDistance from '../assets/svgJS/Distancesvg';
+import SvgPersonal from '../assets/svgJS/Personalsvg';
+import { InfoPage } from '../components/InfoPage';
+import Window from '../assets/data/windowSize';
 
-const windowWidth = Dimensions.get("window").width;
-const windowHeight = Dimensions.get("window").height;
 const svgOne = <SvgWorld />;
 const svgTwo = <SvgDistance />;
 const svgThree = <SvgPersonal />;
@@ -28,9 +27,9 @@ const InfoScreenOne = () => {
       <View style={styles.innerContainer}>
         <IllustrationHolder
           svgComponent={svgOne}
-          mainText={"Track Virus"}
-          detailsText={"Track Covid-19 virus around the world"}
-          outerColor={"#B6FFB6"}
+          mainText={'Track Virus'}
+          detailsText={'Track Covid-19 virus around the world'}
+          outerColor={'#B6FFB6'}
         />
         <SkipButton />
       </View>
@@ -44,9 +43,9 @@ const InfoScreenTwo = () => {
       <View style={styles.innerContainer}>
         <IllustrationHolder
           svgComponent={svgTwo}
-          mainText={"Get Tips"}
-          detailsText={"Get tips on how to stay protected"}
-          outerColor={"#FFE0AE"}
+          mainText={'Get Tips'}
+          detailsText={'Get tips on how to stay protected'}
+          outerColor={'#FFE0AE'}
         />
         <SkipButton />
       </View>
@@ -60,9 +59,9 @@ const InfoScreenThree = () => {
       <View style={styles.innerContainer}>
         <IllustrationHolder
           svgComponent={svgThree}
-          mainText={"Latest News"}
-          detailsText={"Get the latest news on covid-19 virus around the world"}
-          outerColor={"#FFA299"}
+          mainText={'Latest News'}
+          detailsText={'Get the latest news on covid-19 virus around the world'}
+          outerColor={'#FFA299'}
         />
         <SkipButton />
       </View>
@@ -93,13 +92,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   innerContainer: {
-    marginTop: windowHeight - 650,
+    marginTop: Window.height - 650,
   },
   viewPager: {
     flex: 1,
   },
-  colorOne: { backgroundColor: "#279E65" },
-  colorTwo: { backgroundColor: "#E79E29" },
-  colorThree: { backgroundColor: "#E7675A" },
+  colorOne: { backgroundColor: '#279E65' },
+  colorTwo: { backgroundColor: '#E79E29' },
+  colorThree: { backgroundColor: '#E7675A' },
 });
 export default InfoScreen;

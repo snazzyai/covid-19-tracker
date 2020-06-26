@@ -14,10 +14,9 @@ import { Searchbar } from 'react-native-paper';
 import backgroundColor from '../assets/data/backgroundColor';
 import data from '../assets/data/data';
 import NewsItem from '../components/NewsItem';
+import Window from '../assets/data/windowSize';
 import { newsApiKey } from '../config';
-
-const windowWidth = Dimensions.get('window').width;
-const windowHeight = Dimensions.get('window').height;
+import { Menu } from 'react-native-paper';
 
 const HomeScreen = () => {
   const [search, setSearch] = useState('');
@@ -25,30 +24,26 @@ const HomeScreen = () => {
   const [filteredNews, setFilteredNews] = useState([]);
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
-  const [hasLoaded, setHasLoaded] = useState(false);
-  const [footerLoading, setFooterLoading] = useState(false);
   const [bytes, setRandomBytes] = useState(Math.random() * 1000000000);
   const [error, setError] = useState('');
 
   const fakeUrl = `https://jsonplaceholder.typicode.com/photos?_limit=10&_page=${page}`;
   const url = `https://newsapi.org/v2/everything?q=covid&pageSize=50&apiKey=${newsApiKey}`;
   const fetchNews = async () => {
-    hasLoaded ? setIsLoading(false) : setIsLoading(true);
+    setIsLoading(true);
+    setError('');
     const result = await fetch(url);
     result
       .json()
       .then((data) => {
-        setFooterLoading(false);
         setIsLoading(false);
-        setHasLoaded(true);
         setNews(data.articles);
         setFilteredNews(data.articles);
       })
       .catch((error) => {
-        setFooterLoading(false);
         setIsLoading(false);
         console.warn(error);
-        setError('Error connecting...swipe down to refresh');
+        setError('Error connecting...');
       });
   };
 
@@ -81,6 +76,7 @@ const HomeScreen = () => {
           value={search}
         />
       </View>
+      <Menu.Item icon="redo" onPress={() => fetchNews()} title="Refresh" />
       {error ? (
         <View>
           <Text>{error}</Text>
@@ -116,10 +112,10 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     backgroundColor: backgroundColor.grey,
-    paddingTop: windowHeight - 630,
+    paddingTop: Window.height - 630,
   },
   searchbar: {
-    width: windowWidth - 45,
+    width: Window.width - 45,
     borderRadius: 0,
   },
   list: {

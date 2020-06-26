@@ -8,9 +8,7 @@ import {
   SafeAreaView,
 } from 'react-native';
 import * as WebBrowser from 'expo-web-browser';
-
-const windowWidth = Dimensions.get('window').width - 45;
-const windowHeight = Dimensions.get('window').height;
+import Window from '../assets/data/windowSize';
 
 const NewsItem = ({ title, imgUrl, body, more }) => {
   const loadWebpage = async (page) => {
@@ -45,7 +43,7 @@ const styles = StyleSheet.create({
   },
   newsImage: {
     backgroundColor: 'green',
-    width: windowWidth,
+    width: Window.width - 45,
     height: 200,
     marginTop: 20,
   },
@@ -65,7 +63,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   reference: {
-    marginLeft: windowWidth - 145,
+    marginLeft: Window.width - 190,
   },
   referenceText: {
     fontSize: 12,

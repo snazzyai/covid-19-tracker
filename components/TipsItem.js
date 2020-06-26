@@ -7,6 +7,7 @@ import {
   Dimensions,
   SafeAreaView,
 } from 'react-native';
+import Window from '../assets/data/windowSize';
 
 const windowWidth = Dimensions.get('window').width - 45;
 const windowHeight = Dimensions.get('window').height;
@@ -69,7 +70,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   reference: {
-    marginLeft: windowWidth - 190,
+    marginLeft: Window.width - 235,
     marginBottom: 5,
   },
   referenceText: {
