@@ -117,11 +117,11 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     backgroundColor: backgroundColor.grey,
-    paddingTop: Window.height - 630,
+    paddingTop: Window.height - 650,
   },
   searchbar: {
     width: Window.width - 45,
-    borderRadius: 0,
+    borderRadius: 10,
   },
   icon: {
     color: '#000',

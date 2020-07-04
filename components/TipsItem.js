@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
   cardView: {
     backgroundColor: '#fff',
     margin: 15,
+    borderRadius: 20,
   },
 
   title: {

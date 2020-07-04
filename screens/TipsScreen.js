@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   tipsView: {
     flex: 1,
     alignItems: 'center',
-    paddingTop: windowHeight - 630,
+    paddingTop: windowHeight - 650,
     backgroundColor: backgroundColors.orange,
   },
   pageTitle: {
