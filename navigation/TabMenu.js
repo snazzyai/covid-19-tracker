@@ -5,7 +5,6 @@ import HomeScreen from '../screens/HomeScreen';
 import TipsScreen from '../screens/TipsScreen';
 import AboutScreen from '../screens/AboutScreen';
 import CountrySearch from '../screens/CountrySearch';
-import CountryDetails from '../screens/CountryDetails';
 import { createStackNavigator } from '@react-navigation/stack';
 
 const Tab = createBottomTabNavigator();

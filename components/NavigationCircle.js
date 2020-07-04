@@ -1,12 +1,12 @@
-import * as React from "react";
-import { View, StyleSheet } from "react-native";
+import * as React from 'react';
+import { View, StyleSheet } from 'react-native';
 
-const NavigationCircle = () => {
+const NavigationCircle = ({ colorOne, colorTwo, colorThree }) => {
   return (
     <View style={styles.dotView}>
-      <View style={styles.dot}></View>
-      <View style={styles.dot}></View>
-      <View style={styles.dot}></View>
+      <View style={[styles.dot, { backgroundColor: colorOne }]}></View>
+      <View style={[styles.dot, { backgroundColor: colorTwo }]}></View>
+      <View style={[styles.dot, { backgroundColor: colorThree }]}></View>
     </View>
   );
 };
@@ -14,11 +14,12 @@ const NavigationCircle = () => {
 const styles = StyleSheet.create({
   dotView: {
     flex: 1,
-    flexDirection: "row",
-    justifyContent: "center",
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 50,
   },
   dot: {
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
     width: 12,
     height: 12,
     borderRadius: 100,

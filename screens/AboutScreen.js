@@ -15,7 +15,7 @@ const AboutScreen = () => {
     <View style={styles.container}>
       <View style={styles.aboutBox}>
         <Text style={styles.about}>About</Text>
-        <Text style={styles.text}>covid-19-tracker v0.1</Text>
+        <Text style={styles.text}>covid-19-tracker v1.0.0</Text>
         <Text style={styles.text}>Covid-19 daily world tracking app</Text>
         <Text style={styles.text}>Developed by Abdulsalam Ibrahim</Text>
         <Text style={styles.text}>Matric Number: 00804519</Text>
@@ -44,11 +44,12 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: 'bold',
     padding: 5,
+    color: 'green',
   },
   text: {
-    fontSize: 18,
+    fontSize: 16,
     padding: 5,
-    fontStyle: 'italic',
+    color: 'grey',
   },
 });
 export default AboutScreen;

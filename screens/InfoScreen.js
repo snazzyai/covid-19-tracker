@@ -21,7 +21,7 @@ const svgOne = <SvgWorld />;
 const svgTwo = <SvgDistance />;
 const svgThree = <SvgPersonal />;
 
-const InfoScreenOne = () => {
+const InfoScreenOne = ({ navigation }) => {
   return (
     <SafeAreaView style={[styles.container, styles.colorOne]}>
       <View style={styles.innerContainer}>
@@ -31,13 +31,18 @@ const InfoScreenOne = () => {
           detailsText={'Track Covid-19 virus around the world'}
           outerColor={'#B6FFB6'}
         />
-        <SkipButton />
+        <NavigationCircle
+          colorOne="black"
+          colorTwo="white"
+          colorThree="white"
+        />
+        <SkipButton onPressSkipButton={() => navigation.replace('TabMenu')} />
       </View>
     </SafeAreaView>
   );
 };
 
-const InfoScreenTwo = () => {
+const InfoScreenTwo = ({ navigation }) => {
   return (
     <SafeAreaView style={[styles.container, styles.colorTwo]}>
       <View style={styles.innerContainer}>
@@ -47,13 +52,18 @@ const InfoScreenTwo = () => {
           detailsText={'Get tips on how to stay protected'}
           outerColor={'#FFE0AE'}
         />
-        <SkipButton />
+        <NavigationCircle
+          colorOne="white"
+          colorTwo="black"
+          colorThree="white"
+        />
+        <SkipButton onPressSkipButton={() => navigation.replace('TabMenu')} />
       </View>
     </SafeAreaView>
   );
 };
 
-const InfoScreenThree = () => {
+const InfoScreenThree = ({ navigation }) => {
   return (
     <SafeAreaView style={[styles.container, styles.colorThree]}>
       <View style={styles.innerContainer}>
@@ -63,24 +73,29 @@ const InfoScreenThree = () => {
           detailsText={'Get the latest news on covid-19 virus around the world'}
           outerColor={'#FFA299'}
         />
-        <SkipButton />
+        <NavigationCircle
+          colorOne="white"
+          colorTwo="white"
+          colorThree="black"
+        />
+        <SkipButton onPressSkipButton={() => navigation.replace('TabMenu')} />
       </View>
     </SafeAreaView>
   );
 };
 
-const InfoScreen = () => {
+const InfoScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <ViewPager style={styles.viewPager} initialPage={0}>
         <View key="1">
-          <InfoScreenOne />
+          <InfoScreenOne navigation={navigation} />
         </View>
         <View key="2">
-          <InfoScreenTwo />
+          <InfoScreenTwo navigation={navigation} />
         </View>
         <View key="3">
-          <InfoScreenThree />
+          <InfoScreenThree navigation={navigation} />
         </View>
       </ViewPager>
     </SafeAreaView>
@@ -92,7 +107,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   innerContainer: {
-    marginTop: Window.height - 650,
+    marginTop: Window.height - 630,
   },
   viewPager: {
     flex: 1,

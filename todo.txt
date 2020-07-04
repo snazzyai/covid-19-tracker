@@ -6,9 +6,9 @@
 6. Add search functionality to the newspage ✅
 6. Add info to TipsScreen ✅
 7. Add countries to create countryseach Screen ✅
-8. Route the clicks to CountryCovidDetails screen
-9. Add info to CountryCovidDetailsScreen
-10. Create the About Screen
+8. Route the clicks to CountryCovidDetails screen ✅
+9. Add info to CountryCovidDetailsScreen ✅
+10. Create the About Screen ✅
 11. Add functionality to show infoscreen only to first time users
 12. Add functionality to not allow user view the infoscreen after leaving to HomeScreen page
 13. Final touches on UI
