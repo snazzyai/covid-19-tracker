@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
     paddingRight: 10,
     paddingTop: Window.height - 650,
     paddingBottom: Window.height - 620,
-    backgroundColor: backgroundColor.blue,
+    backgroundColor: backgroundColor.green,
   },
   searchButton: {
     backgroundColor: '#fff',

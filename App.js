@@ -23,17 +23,19 @@ const Stack = createStackNavigator();
 const App = () => {
   const [initialRoute, setInitialRoute] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const timer = 2000;
 
-  // AsyncStorage.clear();
+  AsyncStorage.clear(); //for development
+
   AsyncStorage.getItem('shouldRoute')
     .then((value) => {
       if (value === null) {
         AsyncStorage.setItem('shouldRoute', 'true');
         setInitialRoute('InfoScreen');
-        setTimeout(() => setIsLoading(false), 3000);
+        setTimeout(() => setIsLoading(false), timer);
       } else {
         setInitialRoute('TabMenu');
-        setTimeout(() => setIsLoading(false), 3000);
+        setTimeout(() => setIsLoading(false), timer);
       }
     })
     .catch((error) => console.warn(error));

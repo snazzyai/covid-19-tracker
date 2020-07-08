@@ -18,9 +18,6 @@ const AboutScreen = () => {
         <Text style={styles.text}>covid-19-tracker v1.0.0</Text>
         <Text style={styles.text}>Covid-19 daily world tracking app</Text>
         <Text style={styles.text}>Developed by Abdulsalam Ibrahim</Text>
-        <Text style={styles.text}>Matric Number: 00804519</Text>
-
-        <Text style={styles.text}>Year 2020</Text>
       </View>
     </View>
   );
@@ -35,7 +32,7 @@ const styles = StyleSheet.create({
   aboutBox: {
     marginTop: Window.height - 490,
     width: Window.width - 500,
-    height: Window.height - 450,
+    height: Window.height - 480,
     backgroundColor: '#fff',
     padding: 10,
     borderRadius: 15,
@@ -44,12 +41,11 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: 'bold',
     padding: 5,
-    color: 'green',
+    fontStyle: 'italic',
   },
   text: {
     fontSize: 16,
     padding: 5,
-    color: 'grey',
   },
 });
 export default AboutScreen;
